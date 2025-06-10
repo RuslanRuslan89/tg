@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>TG RiN Bots - Каталог</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Включаем header -->
+    <?php include 'header.php'; ?>
+    
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Каталог ботов</h1>
+                <p>Более 1200 проверенных решений для автоматизации вашего бизнеса</p>
+            </div>
+        </section>
+
+        <section class="filters-section">
+            <div class="container">
+                <h2>Фильтры поиска</h2>
+                <div class="filter-container">
+                    <div class="filter-group">
+                        <label for="category">Категория</label>
+                        <select id="category">
+                            <option value="">Все категории</option>
+                            <option value="marketing">Маркетинг</option>
+                            <option value="education">Образование</option>
+                            <option value="entertainment">Развлечения</option>
+                            <option value="finance">Финансы</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="price">Цена ($)</label>
+                        <input type="range" id="price" min="0" max="500" value="250">
+                        <div class="slider-values">
+                            <span>$0</span>
+                            <span id="price-value">$250</span>
+                            <span>$500</span>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="rating">Рейтинг</label>
+                        <input type="range" id="rating" min="0" max="5" step="0.1" value="4">
+                        <div class="slider-values">
+                            <span>0</span>
+                            <span id="rating-value">4.0</span>
+                            <span>5.0</span>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary">Применить фильтры</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="bots-grid">
+            <div class="container">
+                <!-- Пример карточки бота -->
+                <div class="bot-card">
+                    <div class="bot-header">
+                        <div class="bot-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="bot-info">
+                            <h3>ShopMaster Bot</h3>
+                            <div class="bot-category">Электронная коммерция</div>
+                            <div class="bot-stats">
+                                <div class="stat">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.9 (256)</span>
+                                </div>
+                                <div class="stat">
+                                    <i class="fas fa-download"></i>
+                                    <span>12K+</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bot-content">
+                        <p class="bot-description">Полноценный интернет-магазин в Telegram с корзиной, оплатой и управлением заказами.</p>
+                    </div>
+                    <div class="bot-footer">
+                        <div class="price">$49.99</div>
+                        <button class="btn btn-primary">Подробнее</button>
+                    </div>
+                </div>
+                
+                <!-- Добавьте еще карточки ботов -->
+            </div>
+        </section>
+        
+        <section class="pagination">
+            <div class="container">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination-list">
+                        <li><a href="#">Назад</a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">Вперед</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+    </main>
+
+    <!-- Включаем footer -->
+    <?php include 'footer.php'; ?>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>
