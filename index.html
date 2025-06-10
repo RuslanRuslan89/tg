@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TG RiN Bots - Каталог лучших Telegram ботов</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4895ef;
+            --dark: #1d3557;
+            --light: #f1faee;
+            --success: #4cc9f0;
+            --warning: #f72585;
+            --text: #2b2d42;
+            --gray: #8d99ae;
+            --bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--dark), var(--secondary));
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .logo i {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(120deg, rgba(29, 53, 87, 0.9), rgba(63, 55, 201, 0.85)), url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        /* Stats Section */
+        .stats {
+            background-color: var(--card-bg);
+            padding: 70px 0;
+            box-shadow: 0 4px 20px var(--shadow);
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 8px 30px rgba(67, 97, 238, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .stat-card i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .stat-card h3 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* Categories */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .category-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .category-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .category-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .category-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .category-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .bot-count {
+            display: inline-block;
+            background-color: var(--light);
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        /* Featured Bots */
+        .featured-bots {
+            background-color: var(--light);
+        }
+
+        .bots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .bot-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .bot-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .bot-header {
+            padding: 20px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .bot-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+
+        .bot-info {
+            flex-grow: 1;
+        }
+
+        .bot-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+
+        .bot-category {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .bot-stats {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+        }
+
+        .bot-content {
+            padding: 25px;
+        }
+
+        .bot-description {
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        .bot-features {
+            margin-bottom: 25px;
+        }
+
+        .bot-features h4 {
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .features-list {
+            list-style: none;
+        }
+
+        .features-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .features-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 10px;
+            color: var(--success);
+        }
+
+        .bot-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 25px 25px;
+        }
+
+        .price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Data Visualization */
+        .data-section {
+            background: linear-gradient(135deg, var(--dark), var(--secondary));
+            color: white;
+            padding: 100px 0;
+        }
+
+        .data-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 50px;
+            align-items: center;
+        }
+
+        .data-content {
+            padding-right: 30px;
+        }
+
+        .data-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .data-content p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .charts {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .chart-container {
+            height: 300px;
+            position: relative;
+            margin: 20px 0;
+        }
+
+        /* Filters */
+        .filters {
+            background-color: var(--card-bg);
+            padding: 70px 0;
+        }
+
+        .filter-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .filter-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .filter-header h2 {
+            font-size: 2.2rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .filter-controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .filter-group {
+            margin-bottom: 20px;
+        }
+
+        .filter-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .slider-container {
+            padding: 15px 0;
+        }
+
+        .slider {
+            width: 100%;
+            height: 10px;
+            -webkit-appearance: none;
+            background: linear-gradient(to right, var(--accent), var(--primary));
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid var(--primary);
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .slider-values {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            color: var(--gray);
+        }
+
+        .filter-results {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .filter-tag {
+            background-color: var(--light);
+            color: var(--primary);
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            margin: 5px;
+        }
+
+        .filter-tag i {
+            cursor: pointer;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 70px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        .footer-column p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .footer-links i {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .data-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .data-content {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero {
+                padding: 70px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+            
+            .section {
+                padding: 70px 0;
+            }
+            
+            .cta h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            nav ul {
+                gap: 15px;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+            }
+            
+            .stat-card {
+                padding: 20px;
+            }
+            
+            .stat-card h3 {
+                font-size: 2rem;
+            }
+            
+            .category-card, .bot-card {
+                max-width: 350px;
+                margin: 0 auto;
+            }
+            
+            .filter-container {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fab fa-telegram"></i>
+                <span>TG RiN Bots</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Главная</a></li>
+                    <li><a href="#">Каталог</a></li>
+                    <li><a href="#">Категории</a></li>
+                    <li><a href="#">Премиум</a></li>
+                    <li><a href="#">Отзывы</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-outline">Войти</button>
+                <button class="btn btn-primary">Регистрация</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Мощные Telegram боты для вашего бизнеса</h1>
+            <p>Более 1000 готовых решений для автоматизации, маркетинга и коммуникации. Находите идеального бота для ваших задач.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary">Найти бота</button>
+                <button class="btn btn-outline">Продать своего бота</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container stats-container">
+            <div class="stat-card">
+                <i class="fas fa-robot"></i>
+                <h3>1200+</h3>
+                <p>Ботов в каталоге</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-layer-group"></i>
+                <h3>24</h3>
+                <p>Категорий</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-users"></i>
+                <h3>85,000+</h3>
+                <p>Пользователей</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-star"></i>
+                <h3>4.9/5</h3>
+                <p>Средняя оценка</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Популярные категории ботов</h2>
+                <p>Выберите категорию, которая соответствует вашим потребностям</p>
+            </div>
+            <div class="categories">
+                <div class="category-card">
+                    <div class="category-img" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="category-content">
+                        <h3>Маркетинг и продажи</h3>
+                        <p>Боты для автоматизации продаж, рассылок, CRM и привлечения клиентов</p>
+                        <span class="bot-count">248 ботов</span>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-img" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="category-content">
+                        <h3>Образование</h3>
+                        <p>Обучающие платформы, тесты, курсы и тренажеры в Telegram</p>
+                        <span class="bot-count">176 ботов</span>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-img" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="category-content">
+                        <h3>Развлечения</h3>
+                        <p>Игры, викторины, музыка, мемы и развлекательные боты</p>
+                        <span class="bot-count">312 ботов</span>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-img" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="category-content">
+                        <h3>Финансы и криптовалюта</h3>
+                        <p>Трейдинг, мониторинг курсов, кошельки и финансовые инструменты</p>
+                        <span class="bot-count">142 ботов</span>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-img" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="category-content">
+                        <h3>Управление сообществами</h3>
+                        <p>Модерация, аналитика, управление чатами и каналами</p>
+                        <span class="bot-count">195 ботов</span>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-img" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="category-content">
+                        <h3>Автоматизация бизнеса</h3>
+                        <p>Интеграции, задачи, уведомления и бизнес-процессы</p>
+                        <span class="bot-count">127 ботов</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Bots -->
+    <section class="section featured-bots">
+        <div class="container">
+            <div class="section-header">
+                <h2>Рекомендуемые боты</h2>
+                <p>Лучшие решения, выбранные нашими экспертами</p>
+            </div>
+            <div class="bots-grid">
+                <div class="bot-card">
+                    <div class="bot-header">
+                        <div class="bot-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="bot-info">
+                            <h3>ShopMaster Bot</h3>
+                            <div class="bot-category">Электронная коммерция</div>
+                            <div class="bot-stats">
+                                <div class="stat">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.9 (256)</span>
+                                </div>
+                                <div class="stat">
+                                    <i class="fas fa-download"></i>
+                                    <span>12K+</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bot-content">
+                        <p class="bot-description">Полноценный интернет-магазин в Telegram с корзиной, оплатой и управлением заказами.</p>
+                        <div class="bot-features">
+                            <h4>Основные возможности:</h4>
+                            <ul class="features-list">
+                                <li>Каталог товаров с категориями</li>
+                                <li>Корзина и оформление заказов</li>
+                                <li>Онлайн оплата (карты, крипта)</li>
+                                <li>Уведомления о статусе заказа</li>
+                                <li>CRM-интеграция</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bot-footer">
+                        <div class="price">$49.99</div>
+                        <button class="btn btn-primary">Подробнее</button>
+                    </div>
+                </div>
+                
+                <div class="bot-card">
+                    <div class="bot-header">
+                        <div class="bot-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="bot-info">
+                            <h3>LearnPro Bot</h3>
+                            <div class="bot-category">Образование</div>
+                            <div class="bot-stats">
+                                <div class="stat">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.8 (178)</span>
+                                </div>
+                                <div class="stat">
+                                    <i class="fas fa-download"></i>
+                                    <span>8K+</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bot-content">
+                        <p class="bot-description">Платформа для создания и продажи онлайн-курсов с тестами и прогрессом студентов.</p>
+                        <div class="bot-features">
+                            <h4>Основные возможности:</h4>
+                            <ul class="features-list">
+                                <li>Создание курсов и уроков</li>
+                                <li>Интерактивные тесты</li>
+                                <li>Отслеживание прогресса</li>
+                                <li>Система сертификатов</li>
+                                <li>Платежи и подписки</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bot-footer">
+                        <div class="price">$39.99</div>
+                        <button class="btn btn-primary">Подробнее</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Visualization -->
+    <section class="data-section">
+        <div class="container data-container">
+            <div class="data-content">
+                <h2>Аналитика и эффективность</h2>
+                <p>Наши боты показывают выдающиеся результаты в различных сферах бизнеса. В среднем, внедрение Telegram ботов увеличивает конверсию на 35% и снижает затраты на поддержку клиентов на 50%.</p>
+                <p>Благодаря глубокой интеграции с популярными сервисами, наши решения легко адаптируются под ваши бизнес-процессы.</p>
+                <div class="stats-container" style="margin-top: 40px;">
+                    <div class="stat-card" style="background: rgba(255,255,255,0.15);">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>+35%</h3>
+                        <p>Рост конверсии</p>
+                    </div>
+                    <div class="stat-card" style="background: rgba(255,255,255,0.15);">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <h3>-50%</h3>
+                        <p>Снижение затрат</p>
+                    </div>
+                </div>
+            </div>
+            <div class="charts">
+                <div class="chart-container">
+                    <canvas id="usageChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="growthChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="filters">
+        <div class="container">
+            <div class="filter-container">
+                <div class="filter-header">
+                    <h2>Найдите идеального бота</h2>
+                    <p>Используйте фильтры для поиска оптимального решения</p>
+                </div>
+                
+                <div class="filter-controls">
+                    <div class="filter-group">
+                        <label for="category">Категория</label>
+                        <select id="category" class="btn" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px;">
+                            <option value="">Все категории</option>
+                            <option value="marketing">Маркетинг</option>
+                            <option value="education">Образование</option>
+                            <option value="entertainment">Развлечения</option>
+                            <option value="finance">Финансы</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="price">Цена ($)</label>
+                        <div class="slider-container">
+                            <input type="range" min="0" max="500" value="250" class="slider" id="price">
+                        </div>
+                        <div class="slider-values">
+                            <span>$0</span>
+                            <span id="price-value">$250</span>
+                            <span>$500</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="filter-controls">
+                    <div class="filter-group">
+                        <label for="rating">Рейтинг</label>
+                        <div class="slider-container">
+                            <input type="range" min="0" max="5" step="0.1" value="4" class="slider" id="rating">
+                        </div>
+                        <div class="slider-values">
+                            <span>0</span>
+                            <span id="rating-value">4.0</span>
+                            <span>5.0</span>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="users">Пользователи</label>
+                        <div class="slider-container">
+                            <input type="range" min="0" max="10000" value="5000" class="slider" id="users">
+                        </div>
+                        <div class="slider-values">
+                            <span>0</span>
+                            <span id="users-value">5,000</span>
+                            <span>10,000+</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 30px; text-align: center;">
+                    <button class="btn btn-primary" style="padding: 15px 40px; font-size: 1.1rem;">Применить фильтры</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2>Начните использовать лучших Telegram ботов уже сегодня</h2>
+            <p>Присоединяйтесь к 85,000+ пользователей, которые уже автоматизировали свои бизнес-процессы с помощью наших решений</p>
+            <button class="btn btn-outline" style="background-color: rgba(255,255,255,0.15); border-color: white; color: white; padding: 15px 50px; font-size: 1.1rem;">
+                Начать бесплатно
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="logo">
+                        <i class="fab fa-telegram"></i>
+                        <span>TG RiN Bots</span>
+                    </div>
+                    <p>Крупнейший каталог Telegram ботов для бизнеса и личного использования. Более 1200 проверенных решений.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Категории</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Маркетинг</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Образование</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Развлечения</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Финансы</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Автоматизация</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Компания</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> О нас</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Контакты</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Блог</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Вакансии</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Партнеры</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Поддержка</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Помощь</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Документация</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Сообщить об ошибке</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Статус системы</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> API для разработчиков</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 TG RiN Bots. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Charts
+        document.addEventListener('DOMContentLoaded', function() {
+            // Usage Chart
+            const usageCtx = document.getElementById('usageChart').getContext('2d');
+            const usageChart = new Chart(usageCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Маркетинг', 'Образование', 'Развлечения', 'Финансы', 'Автоматизация'],
+                    datasets: [{
+                        data: [30, 22, 25, 15, 8],
+                        backgroundColor: [
+                            '#4361ee',
+                            '#4895ef',
+                            '#4cc9f0',
+                            '#560bad',
+                            '#f72585'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: 'white',
+                                font: {
+                                    size: 12
+                                }
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Распределение по категориям',
+                            color: 'white',
+                            font: {
+                                size: 16
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Growth Chart
+            const growthCtx = document.getElementById('growthChart').getContext('2d');
+            const growthChart = new Chart(growthCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
+                    datasets: [{
+                        label: 'Пользователи (тыс.)',
+                        data: [12, 19, 15, 25, 30, 42, 55, 60, 70, 75, 80, 85],
+                        borderColor: '#4cc9f0',
+                        backgroundColor: 'rgba(76, 201, 240, 0.1)',
+                        tension: 0.3,
+                        fill: true,
+                        pointBackgroundColor: '#fff',
+                        pointBorderWidth: 2,
+                        pointRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: 'white'
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Рост пользователей (2023)',
+                            color: 'white',
+                            font: {
+                                size: 16
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            grid: {
+                                color: 'rgba(255,255,255,0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255,255,255,0.7)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255,255,255,0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255,255,255,0.7)'
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Slider functionality
+            const priceSlider = document.getElementById('price');
+            const priceValue = document.getElementById('price-value');
+            const ratingSlider = document.getElementById('rating');
+            const ratingValue = document.getElementById('rating-value');
+            const usersSlider = document.getElementById('users');
+            const usersValue = document.getElementById('users-value');
+            
+            priceSlider.addEventListener('input', function() {
+                priceValue.textContent = '$' + this.value;
+            });
+            
+            ratingSlider.addEventListener('input', function() {
+                ratingValue.textContent = parseFloat(this.value).toFixed(1);
+            });
+            
+            usersSlider.addEventListener('input', function() {
+                usersValue.textContent = parseInt(this.value).toLocaleString();
+            });
+        });
+    </script>
+</body>
+</html>
