@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>TG RiN Bots - Контакты</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Включаем header -->
+    <?php include 'header.php'; ?>
+    
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Свяжитесь с нами</h1>
+                <p>Мы всегда рады ответить на ваши вопросы</p>
+            </div>
+        </section>
+
+        <section class="contact-form">
+            <div class="container">
+                <div class="form-wrapper">
+                    <h2>Форма обратной связи</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Имя</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Тема</label>
+                            <input type="text" id="subject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Сообщение</label>
+                            <textarea id="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Отправить</button>
+                    </form>
+                </div>
+                
+                <div class="contact-info">
+                    <h2>Как нас найти</h2>
+                    <ul>
+                        <li><strong>Email:</strong> support@tgrinbots.ru</li>
+                        <li><strong>Telegram:</strong> @tgrinbots_support</li>
+                        <li><strong>Телефон:</strong> +7 (495) 123-45-67</li>
+                        <li><strong>Адрес:</strong> г. Москва, ул. Телеграфная, д. 12</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Включаем footer -->
+    <?php include 'footer.php'; ?>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>
